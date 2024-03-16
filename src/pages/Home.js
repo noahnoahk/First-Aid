@@ -11,8 +11,8 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Your First AID Buddy</h1>
-      <p>Gemini</p>
+      <h1>First Fix Aid</h1>
+      <p>Your First Aid Buddy</p>
 
       <div style={{ margin: '30px 0' }}>
         <button
