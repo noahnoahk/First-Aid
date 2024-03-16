@@ -11,8 +11,8 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Your First AID Buddy</h1>
-      <p>Gemini</p>
+      <h1>FirstFixAid</h1>
+      
 
       <div style={{ margin: '30px 0' }}>
         <button
@@ -35,6 +35,7 @@ const Home = () => {
           :
           <AiwithImage />
       }
+      <p>Powered by Gemini</p>
     </div>
   );
 };

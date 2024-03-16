@@ -22,7 +22,12 @@ const AiwithImage = () => {
         ]);
         const response = await result.response;
         const text = response.text();
-        setResponse(text);
+        // Format the sample text
+        const formattedText = formatText(text);
+
+        // Print the formatted text
+        console.log(formattedText);
+        setResponse(formattedText);
         setLoading(false);
     }
 
@@ -30,6 +35,18 @@ const AiwithImage = () => {
         aiImageRun();
     }
 
+        // Function to format the text
+        function formatText(text) {
+            // Replace double asterisks with bold tags and add line breaks
+            let formattedText = text.replace(/(\n\*\*)/g, '<br>');
+            formattedText = formattedText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+            
+            // Replace single asterisks with line breaks
+            formattedText = formattedText.replace(/\*/g, '<br>');
+            
+            return formattedText;
+        }
+    
     const handleImageChange = (e) => {
         const file = e.target.files[0];
 
@@ -75,7 +92,10 @@ const AiwithImage = () => {
                     <p style={{ margin: '30px 0' }}>Loading ...</p>
                     :
                     <div style={{ margin: '30px 0' }}>
-                        <p>{aiResponse}</p>
+                        {/* <p>{aiResponse}</p> */}
+                        <p dangerouslySetInnerHTML={{ __html: aiResponse }}></p>
+
+
                     </div>
             }
         </div>
